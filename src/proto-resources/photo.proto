@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+package photo;
+
+option java_package = "com.tv2next.photo.message";
+option java_multiple_files = true;
+
+message Option {
+    int32 cameraId = 1; //相机ID
+}
+
+message general {
+    uint64 id = 1;     //相片ID
+    uint64 timeStamp = 2; // 拍照时间戳
+}

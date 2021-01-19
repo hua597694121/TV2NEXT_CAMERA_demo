@@ -1,5 +1,7 @@
 {
   "name": "TV2NEXT-Camera-Demo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -26,6 +26,7 @@
     "cordova-android": "^8.1.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-hxl-camera": "file:local-plugins/cordova-plugin-hxl-camera",
+    "date-fns": "^2.16.1",
     "protobufjs": "^6.10.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

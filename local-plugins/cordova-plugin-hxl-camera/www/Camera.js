@@ -93,14 +93,7 @@ for (var key in Camera) {
  * __Supported Platforms__
  *
  * - Android
- * - BlackBerry
- * - Browser
- * - Firefox
- * - FireOS
  * - iOS
- * - Windows
- * - WP8
- * - Ubuntu
  *
  * More examples [here](#camera-getPicture-examples). Quirks [here](#camera-getPicture-quirks).
  *

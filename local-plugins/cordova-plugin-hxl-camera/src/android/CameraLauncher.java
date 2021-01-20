@@ -21,6 +21,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.util.Base64;
+import android.util.Log;
 
 import org.apache.cordova.BuildHelper;
 import org.apache.cordova.CallbackContext;
@@ -30,6 +31,7 @@ import org.apache.cordova.PermissionHelper;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -87,6 +89,8 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
     private static final int CROP_CAMERA = 100;
 
     private static final String TIME_FORMAT = "yyyyMMdd_HHmmss";
+    private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private static final String ID_FORMAT = "yyyyMMddHHmmss";
 
     private int mQuality;                   // Compression quality hint (0-100: 0=low quality & high compression, 100=compress of max quality)
     private int targetWidth;                // desired width of the image
@@ -111,7 +115,6 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
     private Uri croppedUri;
     private ExifHelper exifData;            // Exif data from source
     private String applicationId;
-
 
     /**
      * Executes the request and returns PluginResult.
@@ -460,7 +463,6 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
         String sourcePath = (this.allowEdit && this.croppedUri != null) ?
                 FileHelper.stripFileProtocol(this.croppedUri.toString()) :
                 this.imageUri.getFilePath();
-
 
         if (this.encodingType == JPEG) {
             try {
@@ -1247,12 +1249,26 @@ public class CameraLauncher extends CordovaPlugin implements MediaScannerConnect
                 byte[] code = jpeg_data.toByteArray();
                 byte[] output = Base64.encode(code, Base64.NO_WRAP);
                 String js_out = new String(output);
-                this.callbackContext.success(js_out);
+
+                String date = new SimpleDateFormat(DATE_FORMAT).format(new Date());
+                String time = new SimpleDateFormat(TIME_FORMAT).format(new Date());
+                String fileName = "IMG_" + time + (this.encodingType == JPEG ? JPEG_EXTENSION : PNG_EXTENSION);
+                String id = new SimpleDateFormat(ID_FORMAT).format(new Date());
+
+                JSONObject data = new JSONObject();
+                data.put("name", fileName);
+                data.put("timeStamp", System.currentTimeMillis());
+                data.put("date", date);
+                data.put("id", id);
+                data.put("url", js_out);
+
+                this.callbackContext.success(data);
                 js_out = null;
                 output = null;
                 code = null;
             }
         } catch (Exception e) {
+            e.printStackTrace();
             this.failPicture("Error compressing image.");
         }
         jpeg_data = null;

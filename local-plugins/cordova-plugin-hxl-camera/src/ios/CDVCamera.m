@@ -474,7 +474,26 @@ static NSString* toBase64(NSData* data) {
             image = [self retrieveImage:info options:options];
             NSData* data = [self processImage:image info:info options:options];
             if (data)  {
-                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:toBase64(data)];
+                NSString *timeStamp = [NSString stringWithFormat:@"%.0f",[[NSDate date] timeIntervalSince1970]*1000];
+
+                NSDate *datenow = [NSDate date];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"yyyyMMddHHmmss"];
+                NSString* id = [formatter stringFromDate:datenow];
+
+                [formatter setDateFormat:@"yyyyMMdd_HHmmss"];
+                NSString* name = [[NSString alloc]initWithFormat:@"%@%@%@", @"IMG_", [formatter stringFromDate:datenow], @".png"];
+
+                [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                NSString* dateStr = [formatter stringFromDate:datenow];
+
+                NSMutableDictionary* returnObj = [NSMutableDictionary dictionary];
+                [returnObj setValue:name forKey:@"name"];
+                [returnObj setValue:timeStamp forKey:@"timeStamp"];
+                [returnObj setValue:dateStr forKey:@"date"];
+                [returnObj setValue:id forKey:@"id"];
+                [returnObj setValue:toBase64(data) forKey:@"url"];
+                result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:returnObj];
             }
         }
             break;

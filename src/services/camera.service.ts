@@ -3,6 +3,14 @@ import { DestinationType, EncodingType, MediaType, PictureSourceType } from '@/m
 
 declare let navigator: any;
 
+export interface PhotoInfo {
+    id: string
+    name: string
+    date: string
+    timeStamp: number
+    url: string
+}
+
 @Injectable({
     providedIn: 'root'
 })
@@ -19,12 +27,12 @@ export class CameraService {
             mediaType: MediaType.PICTURE,
             saveToPhotoAlbum: true,
             sourceType: PictureSourceType.CAMERA,
-            targetWidth: 800, // required
-            targetHeight: 800 // required
+            // targetWidth: 800, // required
+            // targetHeight: 800 // required
         }
         navigator.camera.getPicture(
-            (data: string) => {
-                console.log('Camera.getPicture: ' + data)
+            (data: PhotoInfo) => {
+                console.log('Camera.getPicture: ' +  JSON.stringify(data))
             },
             (error: any) => {
                 console.log('openCamera error: ' + JSON.stringify(error))

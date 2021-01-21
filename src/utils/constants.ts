@@ -9,4 +9,6 @@ export const NAVIGATION_BAR_HEIGHT = 44
 export const KEY = 'key'
 export const VALUE = 'value'
 
+export const PHOTO_KEY = 'id_'
+
 export const URI_SCHEME_BASE64_PNG = 'data:image/png;base64,'

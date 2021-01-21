@@ -1,0 +1,17 @@
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.cen_btn {
+    width: 100% !important;
+    height: 48px;
+}
+
+.right_btn {
+    min-width: 30px !important;
+    --border-color: transparent;
+    border: none;
+    --color: #095375;
+    font-weight: bold;
+}

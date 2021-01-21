@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="nav">
+      <ion-title>TV2-NEXT</ion-title>
+    </div>
+    <ion-buttons slot="end">
+      <ion-button class="right_btn" [routerLink]="['/history']">History</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="central_cont">
+    <div class="side_25">
+      <ion-button class="cen_btn wide_theme" (click)="onClick()">
+        Take Photo
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

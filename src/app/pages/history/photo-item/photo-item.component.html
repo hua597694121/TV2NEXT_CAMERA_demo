@@ -1,0 +1,11 @@
+<div class="list_item" (click)="viewImage()">
+  <div class="img_cont">
+    <ion-img src="{{imgUrl}}" (ionError)="onImgLoadError($event)"></ion-img>
+  </div>
+  <div class="text_cont">
+    <div class="name">{{item.name}}</div>
+    <div class="middle">
+      <div class="group">拍摄于: {{item.date}}</div>
+    </div>
+  </div>
+</div>

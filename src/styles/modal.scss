@@ -1,0 +1,107 @@
+.modal {
+    --width: 80%;
+    --margin-left: 10%;
+    --border-radius: 7px;
+    --border-color: transparent;
+}
+
+.photo_swipe {
+    --background: transparent;
+}
+
+.search_modal {
+    --max-height: 90%;
+    align-items: flex-end !important;
+}
+
+.ble_list {
+    --max-height: 400px;
+}
+
+.recipe_push_dialog {
+    --max-height: 320px;
+}
+
+.ble_connect_dialog {
+    --max-height: 300px;
+}
+
+.version_edit {
+    --max-height: 200px;
+}
+
+.version_update {
+    --width: 86%;
+    --margin-left: 7%;
+    --max-height: 450px;
+    --border-radius: 15px;
+    --border-color: transparent;
+    --background: transparent;
+}
+
+.food_box_edit {
+    --width: 100%;
+    --border-color: transparent;
+    --max-height: 500px;
+    --background: transparent;
+}
+
+.procedure_edit {
+    --width: 100%;
+    --border-color: transparent;
+    --background: transparent;
+    align-items: flex-end !important;
+}
+
+.action_add_water {
+    --max-height: 480px;
+}
+
+.action_add_oil {
+    --max-height: 560px;
+}
+
+.action_pause {
+    --max-height: 335px;
+}
+
+.action_close_lid {
+    --max-height: 605px;
+}
+
+.action_open_lid {
+    --max-height: 340px;
+}
+
+.action_add_foodstuff {
+    --max-height: 445px;
+}
+
+.recipe_delete {
+    --max-height: 160px;
+}
+
+.btn_con {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: solid 2px #f7f7f7;
+    height: 40px;
+
+    div {
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        padding-top: 10px;
+        align-items: center;
+        text-align: center;
+    }
+    .cancel_btn {
+        border-right: solid 1px #f7f7f7;
+        color: black;
+    }
+    .ok_btn {
+        border-left: solid 1px #f7f7f7;
+        color: #f16b02;
+    }
+}

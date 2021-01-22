@@ -1,4 +1,4 @@
-package org.apache.cordova.camera;
+package tv2.next.camera;
 
 import android.net.Uri;
 import android.os.Build;

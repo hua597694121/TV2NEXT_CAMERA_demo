@@ -1,4 +1,4 @@
-package org.apache.cordova.camera;
+package tv2.next.camera;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;

@@ -23,7 +23,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Camera">
-                <param name="android-package" value="org.apache.cordova.camera.CameraLauncher"/>
+                <param name="android-package" value="tv2.next.camera.CameraLauncher"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
@@ -31,7 +31,7 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
           <provider
-              android:name="org.apache.cordova.camera.FileProvider"
+              android:name="tv2.next.camera.FileProvider"
               android:authorities="${applicationId}.provider"
               android:exported="false"
               android:grantUriPermissions="true" >
@@ -41,11 +41,11 @@
           </provider>
         </config-file>
 
-        <source-file src="src/android/CameraLauncher.java" target-dir="src/org/apache/cordova/camera" />
-        <source-file src="src/android/CordovaUri.java" target-dir="src/org/apache/cordova/camera" />
-        <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/cordova/camera" />
-        <source-file src="src/android/ExifHelper.java" target-dir="src/org/apache/cordova/camera" />
-        <source-file src="src/android/FileProvider.java" target-dir="src/org/apache/cordova/camera" />
+        <source-file src="src/android/CameraLauncher.java" target-dir="src/tv2/next/camera" />
+        <source-file src="src/android/CordovaUri.java" target-dir="src/tv2/next/camera" />
+        <source-file src="src/android/FileHelper.java" target-dir="src/tv2/next/camera" />
+        <source-file src="src/android/ExifHelper.java" target-dir="src/tv2/next/camera" />
+        <source-file src="src/android/FileProvider.java" target-dir="src/tv2/next/camera" />
         <source-file src="src/android/xml/camera_provider_paths.xml" target-dir="res/xml" />
 
         <js-module src="www/CameraPopoverHandle.js" name="CameraPopoverHandle">

@@ -18,6 +18,8 @@ export class HistoryComponent implements OnInit {
 
   itemList: PhotoInfo[]
 
+  show = true
+
   constructor(
     private nav: NavController,
     private storage: Storage,
@@ -26,7 +28,13 @@ export class HistoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.platformService.isAndroidApp()) {
+      this.show = false
+    } else {
+      this.show = true
+    }
     this.listPhotoInfo()
+
     // this.fakeData()
   }
 
